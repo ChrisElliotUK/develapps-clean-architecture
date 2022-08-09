@@ -36,7 +36,7 @@ export function activate(context: vscode.ExtensionContext) {
 			let filePath5 = vscode.Uri.file(wsPath + '/lib/features/' + featureName + '/domain/usecases/.gitkeep');
 			
 			let filePath6 = vscode.Uri.file(wsPath + '/lib/features/' + featureName + '/presentation/bloc/.gitkeep');
-			let filePath7 = vscode.Uri.file(wsPath + '/lib/features/' + featureName + '/presentation/pages/' + featureName + '_page.dart');
+			let filePath7 = vscode.Uri.file(wsPath + '/lib/features/' + featureName + '/presentation/screens/' + featureName + '_screen.dart');
 			let filePath8 = vscode.Uri.file(wsPath + '/lib/features/' + featureName + '/presentation/widgets/.gitkeep');
 
 			let filePath_0 = vscode.Uri.file(wsPath + '/test/features/' + featureName + '/data/datasources/.gitkeep');
@@ -48,7 +48,7 @@ export function activate(context: vscode.ExtensionContext) {
 			let filePath_5 = vscode.Uri.file(wsPath + '/test/features/' + featureName + '/domain/usecases/.gitkeep');
 			
 			let filePath_6 = vscode.Uri.file(wsPath + '/test/features/' + featureName + '/presentation/bloc/.gitkeep');
-			let filePath_7 = vscode.Uri.file(wsPath + '/test/features/' + featureName + '/presentation/pages/' + featureName + '_page_test.dart');
+			let filePath_7 = vscode.Uri.file(wsPath + '/test/features/' + featureName + '/presentation/screens/' + featureName + '_screen_test.dart');
 			let filePath_8 = vscode.Uri.file(wsPath + '/test/features/' + featureName + '/presentation/widgets/.gitkeep');
 		
 			wsedit.createFile(filePath0, { ignoreIfExists: true });

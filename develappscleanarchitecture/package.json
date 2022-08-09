@@ -2,7 +2,7 @@
 	"name": "develappscleanarchitecture",
 	"displayName": "Develapps clean architecture",
 	"description": "This extension helps to develop flutter projects with clean architecture",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"publisher": "Felipe-Gadea-Llopis",
 	"icon": "https://media-exp1.licdn.com/dms/image/C560BAQEDolKyeExYFw/company-logo_200_200/0/1583856972414?e=2159024400&v=beta&t=d07w3ylw2PZ4X_OjbPxMIRRJs0AysrlE9kXKIyWK8IY",
 	"engines": {
@@ -33,12 +33,12 @@
 					"when": "explorerResourceIsFolder",
 					"command": "develappscleanarchitecture.create_feature",
 					"group": "2_workspace"
-		  		},
-				  {
+				},
+				{
 					"when": "explorerResourceIsFolder",
 					"command": "develappscleanarchitecture.create_project_structure",
 					"group": "2_workspace"
-		  		}
+				}
 			]
 		}
 	},
