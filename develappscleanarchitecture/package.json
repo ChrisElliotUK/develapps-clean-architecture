@@ -1,9 +1,12 @@
 {
-	"name": "flutter-clean-architecture",
+	"name": "fluttercleanarchitecture",
 	"displayName": "Flutter Clean Architecture",
 	"description": "This extension helps to develop flutter projects with clean architecture.",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"publisher": "Christopher Elliot",
+	"workspaces": [
+		"flutter"
+	],
 	"repository": "https://github.com/ChrisElliotUK/flutter-clean-architecture.git",
 	"icon": "images/icon.png",
 	"engines": {

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
@@ -9,14 +10,15 @@ export function activate(context: vscode.ExtensionContext) {
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with registerCommand
 	// The commandId parameter must match the command field in package.json
-	let create_feature = vscode.commands.registerCommand('cleanarchitecture.create_feature', async () => {
+	let create_feature = vscode.commands.registerCommand('fluttercleanarchitecture.create_feature', async () => {
 		// The code you place here will be executed every time your command is executed
 		const featureNameUser = await vscode.window.showInputBox();
 
-		if(featureNameUser == null || featureNameUser == "") {
+		if(featureNameUser === null || featureNameUser === "" || featureNameUser === undefined) {
 			vscode.window.showErrorMessage('Feature name must be no empty');
 			return;
-		}
+		} 
+		
 
 		let featureName = featureNameUser.trim();
 		let firstCharUppercased = featureName.charAt(0).toUpperCase();
@@ -73,23 +75,35 @@ export function activate(context: vscode.ExtensionContext) {
 
 			await vscode.workspace.applyEdit(wsedit);
 
-			//*featureName*_page
+			//*featureName*_screen
 			let docu6 = await vscode.workspace.openTextDocument(filePath7);
 			let e6 = await vscode.window.showTextDocument(docu6);
 			await e6.edit(edit => {
-				edit.insert(new vscode.Position(0, 0), "import 'package:flutter/material.dart';\n\n");
-				edit.insert(new vscode.Position(1, 0), "\n");
-				edit.insert(new vscode.Position(2, 0), "class " + internalFeatureName + "Screen extends StatelessWidget {\n");
-				edit.insert(new vscode.Position(3, 0), "const " + internalFeatureName + "Screen ({Key? key}) : super(key: key) {\n");
-				edit.insert(new vscode.Position(4, 0), "	@override\n");
-				edit.insert(new vscode.Position(5, 0), "	Widget build(BuildContext context) {\n");
-				edit.insert(new vscode.Position(6, 0), "		return Scaffold(\n");
-				edit.insert(new vscode.Position(7, 0), "			appBar: AppBar(),\n");
-				edit.insert(new vscode.Position(8, 0), "		);\n");
-				edit.insert(new vscode.Position(9, 0), "	}\n");
-				edit.insert(new vscode.Position(10, 0), "}\n");
+				edit.insert(new vscode.Position(0, 0), "import 'package:flutter/material.dart';\n");
+				edit.insert(new vscode.Position(1, 0), "import 'package:flutter_bloc/flutter_bloc.dart';\n\n");
+				edit.insert(new vscode.Position(2, 0), "import '../../../../di/injection_container.dart' as di;\n\n");
+				edit.insert(new vscode.Position(3, 0), "class " + internalFeatureName + "Screen extends StatelessWidget {\n");
+				edit.insert(new vscode.Position(4, 2), "const " + internalFeatureName + "Screen({Key? key}) : super(key: key); \n");
+				edit.insert(new vscode.Position(5, 2), "static String id = '/" + internalFeatureName + "';\n");
+				edit.insert(new vscode.Position(6, 2), "	@override\n");
+				edit.insert(new vscode.Position(7, 2), "	Widget build(BuildContext context) {\n");
+				edit.insert(new vscode.Position(8, 4), "		return MultiBlocProvider(\n");
+				edit.insert(new vscode.Position(9, 4), "		providers: [],\n");
+				edit.insert(new vscode.Position(10, 6), "			child: const _" + internalFeatureName +"ScreenBody(),\n");
+				edit.insert(new vscode.Position(11, 4), "		);\n");
+				edit.insert(new vscode.Position(12, 2), "}\n");
+				edit.insert(new vscode.Position(13, 0), "}\n\n");
+				edit.insert(new vscode.Position(14, 0), "class _" + internalFeatureName + "ScreenBody extends StatelessWidget {\n");
+				edit.insert(new vscode.Position(15, 2), "const _" + internalFeatureName + "ScreenBody({Key? key}) : super(key: key); \n");
+				edit.insert(new vscode.Position(16, 2), "	@override\n");
+				edit.insert(new vscode.Position(17, 2), "	Widget build(BuildContext context) {\n");
+				edit.insert(new vscode.Position(18, 4), "		return Scaffold(\n");
+				edit.insert(new vscode.Position(19, 6), "			appBar: AppBar(),\n");
+				edit.insert(new vscode.Position(20, 4), "		);\n");
+				edit.insert(new vscode.Position(21, 2), "}\n");
+				edit.insert(new vscode.Position(22, 0), "}\n");
 			});
-
+				
 			vscode.window.showInformationMessage('Feature directories created!');
 			
 			
@@ -97,7 +111,7 @@ export function activate(context: vscode.ExtensionContext) {
 		
 	});
 
-	let create_project_structure = vscode.commands.registerCommand('cleanarchitecture.create_project_structure', async () => {
+	let create_project_structure = vscode.commands.registerCommand('fluttercleanarchitecture.create_project_structure', async () => {
 
 		let featureName = "Sample";
 
@@ -269,20 +283,29 @@ export function activate(context: vscode.ExtensionContext) {
 			let docu6 = await vscode.workspace.openTextDocument(filePath7);
 			let e6 = await vscode.window.showTextDocument(docu6);
 			await e6.edit(edit => {
-				edit.insert(new vscode.Position(0, 0), "import 'package:flutter/material.dart';\n\n");
-				edit.insert(new vscode.Position(1, 0), "\n");
-				edit.insert(new vscode.Position(2, 0), "class " + featureName + "Page extends StatefulWidget {\n");
-				edit.insert(new vscode.Position(3, 0), "	@override\n");
-				edit.insert(new vscode.Position(4, 0), "	createState() => _" + featureName + "Page();\n");
-				edit.insert(new vscode.Position(5, 0), "}\n");
-				edit.insert(new vscode.Position(6, 0), "class _" + featureName + "Page extends State<" + featureName + "Page> {\n");
-				edit.insert(new vscode.Position(7, 0), "	@override\n");
-				edit.insert(new vscode.Position(8, 0), "	Widget build(BuildContext context) {\n");
-				edit.insert(new vscode.Position(9, 0), "		return Scaffold(\n");
-				edit.insert(new vscode.Position(10, 0), "			appBar: AppBar(),\n");
-				edit.insert(new vscode.Position(11, 0), "		);\n");
-				edit.insert(new vscode.Position(12, 0), "	}\n");
-				edit.insert(new vscode.Position(13, 0), "}\n");
+				edit.insert(new vscode.Position(0, 0), "import 'package:flutter/material.dart';\n");
+				edit.insert(new vscode.Position(1, 0), "import 'package:flutter_bloc/flutter_bloc.dart';\n\n");
+				edit.insert(new vscode.Position(2, 0), "import '../../../../di/injection_container.dart' as di;\n\n");
+				edit.insert(new vscode.Position(3, 0), "class " + featureName + "Screen extends StatelessWidget {\n");
+				edit.insert(new vscode.Position(4, 2), "const " + featureName + "Screen({Key? key}) : super(key: key); \n");
+				edit.insert(new vscode.Position(5, 2), "static String id = '/" + featureName + "';\n");
+				edit.insert(new vscode.Position(6, 2), "	@override\n");
+				edit.insert(new vscode.Position(7, 2), "	Widget build(BuildContext context) {\n");
+				edit.insert(new vscode.Position(8, 4), "		return MultiBlocProvider(\n");
+				edit.insert(new vscode.Position(9, 4), "		providers: [],\n");
+				edit.insert(new vscode.Position(10, 6), "			child: const _" + featureName +"ScreenBody(),\n");
+				edit.insert(new vscode.Position(11, 4), "		);\n");
+				edit.insert(new vscode.Position(12, 2), "}\n");
+				edit.insert(new vscode.Position(13, 0), "}\n\n");
+				edit.insert(new vscode.Position(14, 0), "class _" + featureName + "ScreenBody extends StatelessWidget {\n");
+				edit.insert(new vscode.Position(15, 2), "const _" + featureName + "ScreenBody({Key? key}) : super(key: key); \n");
+				edit.insert(new vscode.Position(16, 2), "	@override\n");
+				edit.insert(new vscode.Position(17, 2), "	Widget build(BuildContext context) {\n");
+				edit.insert(new vscode.Position(18, 4), "		return Scaffold(\n");
+				edit.insert(new vscode.Position(19, 6), "			appBar: AppBar(),\n");
+				edit.insert(new vscode.Position(20, 4), "		);\n");
+				edit.insert(new vscode.Position(21, 2), "}\n");
+				edit.insert(new vscode.Position(22, 0), "}\n");
 			});
 
 
