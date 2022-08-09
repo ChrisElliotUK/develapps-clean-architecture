@@ -4,7 +4,7 @@
 	"description": "This extension helps to develop flutter projects with clean architecture. Clone of https://github.com/fgadea/develapps-clean-architecture",
 	"version": "1.0.1",
 	"publisher": "Christopher Elliot",
-	"repository": "https://github.com/ChrisElliotUK/develapps-clean-architecture.git",
+	"repository": "https://github.com/ChrisElliotUK/flutter-clean-architecture.git",
 	"icon": "https://github.com/ChrisElliotUK/develapps-clean-architecture/blob/3ce2d14371160e831d827482711fad0b5b39f1b4/develappscleanarchitecture/images/develapps_logo.png",
 	"engines": {
 		"vscode": "^1.55.0"
