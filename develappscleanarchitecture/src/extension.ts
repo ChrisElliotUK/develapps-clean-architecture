@@ -9,7 +9,7 @@ export function activate(context: vscode.ExtensionContext) {
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with registerCommand
 	// The commandId parameter must match the command field in package.json
-	let create_feature = vscode.commands.registerCommand('develappscleanarchitecture.create_feature', async () => {
+	let create_feature = vscode.commands.registerCommand('cleanarchitecture.create_feature', async () => {
 		// The code you place here will be executed every time your command is executed
 		const featureNameUser = await vscode.window.showInputBox();
 
@@ -79,18 +79,15 @@ export function activate(context: vscode.ExtensionContext) {
 			await e6.edit(edit => {
 				edit.insert(new vscode.Position(0, 0), "import 'package:flutter/material.dart';\n\n");
 				edit.insert(new vscode.Position(1, 0), "\n");
-				edit.insert(new vscode.Position(2, 0), "class " + internalFeatureName + "Page extends StatefulWidget {\n");
-				edit.insert(new vscode.Position(3, 0), "	@override\n");
-				edit.insert(new vscode.Position(4, 0), "	createState() => _" + internalFeatureName + "Page();\n");
-				edit.insert(new vscode.Position(5, 0), "}\n");
-				edit.insert(new vscode.Position(6, 0), "class _" + internalFeatureName + "Page extends State<" + internalFeatureName + "Page> {\n");
-				edit.insert(new vscode.Position(7, 0), "	@override\n");
-				edit.insert(new vscode.Position(8, 0), "	Widget build(BuildContext context) {\n");
-				edit.insert(new vscode.Position(9, 0), "		return Scaffold(\n");
-				edit.insert(new vscode.Position(10, 0), "			appBar: AppBar(),\n");
-				edit.insert(new vscode.Position(11, 0), "		);\n");
-				edit.insert(new vscode.Position(12, 0), "	}\n");
-				edit.insert(new vscode.Position(13, 0), "}\n");
+				edit.insert(new vscode.Position(2, 0), "class " + internalFeatureName + "Screen extends StatelessWidget {\n");
+				edit.insert(new vscode.Position(3, 0), "const " + internalFeatureName + "Screen ({Key? key}) : super(key: key) {\n");
+				edit.insert(new vscode.Position(4, 0), "	@override\n");
+				edit.insert(new vscode.Position(5, 0), "	Widget build(BuildContext context) {\n");
+				edit.insert(new vscode.Position(6, 0), "		return Scaffold(\n");
+				edit.insert(new vscode.Position(7, 0), "			appBar: AppBar(),\n");
+				edit.insert(new vscode.Position(8, 0), "		);\n");
+				edit.insert(new vscode.Position(9, 0), "	}\n");
+				edit.insert(new vscode.Position(10, 0), "}\n");
 			});
 
 			vscode.window.showInformationMessage('Feature directories created!');
@@ -100,7 +97,7 @@ export function activate(context: vscode.ExtensionContext) {
 		
 	});
 
-	let create_project_structure = vscode.commands.registerCommand('develappscleanarchitecture.create_project_structure', async () => {
+	let create_project_structure = vscode.commands.registerCommand('cleanarchitecture.create_project_structure', async () => {
 
 		let featureName = "Sample";
 
@@ -290,7 +287,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 
 
-			vscode.window.showInformationMessage('Develapps clean architecture directories created!');
+			vscode.window.showInformationMessage('Clean architecture directories created!');
 			
 			
 		}
