@@ -1,11 +1,19 @@
 # Flutter Clean Architecture README
 
+## Introduction
+
 This package is a fork of Develapps clean architecture which was created by Felipe Gadea Llopis and sponsored by Develapps.
 
 The fork is developed by [ChrisElliotUK](https://github.com/ChrisElliotUK/flutter-clean-architecture).
 
 This is an extension for developing mobile software with clean architecture focused on flutter. It works with others, it is simply a software architecture.
 With this extension we make easy to work with clean architecture and we help developers to develope flutter projects focused on clean architecture.
+
+## Compile and Package
+Compile your code:
+`npm run compile`
+Then build the backage:
+`vsce package`
 
 ## Features
 
